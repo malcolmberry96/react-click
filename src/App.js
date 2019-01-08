@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "./components/Navbar";
+import Wrapper from "./components/Wrapper";
 
 function App () {
     return (
         <div>
             <Navbar />
+            <Wrapper />
         </div>
     );
 }
