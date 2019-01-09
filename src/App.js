@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
-import Characters from "./components/Characters";
+import CharacterCard from "./components/CharacterCard";
 import characters from "./characters.json";
 import Score from "./components/Score";
-import { finished } from "stream";
 
 
 
@@ -16,71 +15,64 @@ class App extends Component {
         score: 0
     };
 
-//when a character is clicked, the character is taken out of the array 
-characterClick = event => {
-    const currentCharacter = event.target.alt;
-    const characterClicked =
-    this.state.clickedCharacters.indexOf(currentCharacter) > -1;
 
 
-//If a character is clicked the game is reset and the cards are reshuffled. 
-if (characterClicked) {
+//Game Logic 
+shuffle = id => {
+    //Shuffle card functionality 
     this.setState({
-        characters: this.state.characters.sort(function(a,b) {
+        characters: this.state.characters.sort(function (a,b){
             return 0.5 - Math.Random();
         }),
-        clickedCharacters : [],
-        score: 0
+        clickedCharacters: this.state.clickedCharacters.concat(id),
+        //Increase score 
+        score: this.state.score + 1
     });
-        alert("You lost. Play again?");
 
-//Click on a character that was not previosly selected, score is increased
-} else {
-    this.stateState(
-        {
-            characters: this.state.characters.sort(function(a,b){
-                return 0.5 - Math.random();
-            }),
-            clickedCharacters: this.state.clickedCharacters.concat(
-               currentCharacter 
-            ),
-            score: this.state.score + 1
-        },
-//if all characters are selected correctly, game resets and displays "you win" message
-        () => {
-            if (this.state.score === 12){
-                alert("You won! Great Memory! Play again? ");
-                this.state({
-                    characters: this.state.characters.sort(function(a,b){
-                        return 0.5 - Math.random();
-                    }),
-                    clickedCharacters: [],
-                    score: 0
-                });
-            }
-        }
+//Reset game if the same character is clicked 
+    if (this.state.clickedCharacters.includes(id)) {
+        alert("You lost, play again?");
+        this.setState({
+            clickedCharacters: [],
+            score: 0
+        })
+    };
+
+};
+
+//Alert player if they win by matching 12 characters 
+    Win = () => {
+        if (this.state.score === 12) {
+       alert ("You win");
+       this.setState({
+           //Reset Game 
+           clickedCharacters: [],
+           score: 0
+       })
+    };
+};
+
+//Component set up 
+render () {
+    //Check win first 
+    this.Win();
+    return (
+        <Wrapper>
+            {this.state.characters.map(character => (
+                <CharacterCard
+                    id={characters.id}
+                    key={characters.id}
+                    name={characters.name}
+                    image={characters.image}
+                    shuffle={this.shuffle}
+                />
+            ))}
+            <Score>{this.state.score}</Score>
+        </Wrapper>
     );
-  }
+  };
 };
 
-//order of components render 
-render() {
-    return(
-            <Wrapper>
-                {this.state.characters.map(characters => (
-                    <Characters
-                        characterClick={this.characterClick}
-                        id={characters.id}
-                        key={characters.id}
-                        image={characters.image}
-                    />
-                ))}
-                <Score>{this.state.score}</Score>
-            </Wrapper>
-    );
-};
-
-};
 
 
 export default App;
