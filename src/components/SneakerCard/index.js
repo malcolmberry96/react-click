@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function CharacterCard(props) {
+function SneakerCard(props) {
     return (
         <div className="img-thumbnail">
             <img alt={props.name} src={props.image}  onClick={() => props.shuffle(props.id)} />
@@ -9,4 +9,4 @@ function CharacterCard(props) {
     );
 }
 
-export default CharacterCard;
+export default SneakerCard;

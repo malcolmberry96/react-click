@@ -1,0 +1,64 @@
+[
+    
+        {
+            "id": 1,
+            "name": "Air Max 97",
+            "image": "img/97.webp"
+          },
+          {
+            "id": 2,
+            "name": "Black 95",
+            "image": "img/black95.webp"
+          },
+          {
+            "id": 3,
+            "name": "Vapormax",
+            "image": "img/vapormax.webp"
+          },
+          {
+            "id": 4,
+            "name": "Atmos",
+            "image": "img/atmos.webp"
+          },
+          {
+            "id": 5,
+            "name": "Element Sneaker",
+            "image": "img/element.webp"
+          },
+          {
+            "id": 6,
+            "name": "Tailwind",
+            "image": "img/tailwind.webp"
+          },
+          {
+            "id": 7,
+            "name": "Ascics",
+            "image": "img/ascics.jpg"
+          },
+          {
+            "id": 8,
+            "name": "Camo 95",
+            "image": "img/camo95.webp"
+          },
+          {
+            "id": 9,
+            "name": "Air Max 270",
+            "image": "img/270.webp"
+          },
+          {
+            "id": 10,
+            "name": "Air Max 95",
+            "image": "img/95.webp"
+          },
+          {
+            "id": 11,
+            "name": "Fear of God",
+            "image": "img/fearofgod.webp"
+          },
+          {
+            "id": 12,
+            "name": "Year of the Pig '98",
+            "image": "img/pig.webp"
+          }   
+    
+]

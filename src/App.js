@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
-import CharacterCards from "./components/CharacterCard";
-import characters from "./characters.json";
+import SneakerCard from "./components/SneakerCard";
+import sneakers from "./sneakers.json";
 import Score from "./components/Score";
 import Title from "./components/Title";
 
@@ -11,8 +11,8 @@ import Title from "./components/Title";
 class App extends Component {
 //Setting state to 0
     state = {
-        characters, 
-        clickedCharacters: [],
+        sneakers, 
+        clickedSneakers: [],
         score: 0
     };
 
@@ -22,19 +22,19 @@ class App extends Component {
 shuffle = id => {
     //Shuffle card functionality 
     this.setState({
-        characters: this.state.characters.sort(function (a,b){
+        sneakers: this.state.sneakers.sort(function (a,b){
             return 0.5 - Math.random();
         }),
-        clickedCharacters: this.state.clickedCharacters.concat(id),
+        clickedSneakers: this.state.clickedSneakers.concat(id),
         //Increase score 
         score: this.state.score + 1
     });
 
 //Reset game if the same character is clicked 
-    if (this.state.clickedCharacters.includes(id)) {
+    if (this.state.clickedSneakers.includes(id)) {
         alert("You lost, play again?");
         this.setState({
-            clickedCharacters: [],
+            clickedSneakers: [],
             score: 0
         })
     };
@@ -47,7 +47,7 @@ shuffle = id => {
        alert ("You win");
        this.setState({
            //Reset Game 
-           clickedCharacters: [],
+           clickedSneakers: [],
            score: 0
        })
     };
@@ -62,12 +62,12 @@ render () {
         <Wrapper>
             <Title>HYPE Memory</Title>
             <Score>{this.state.score}</Score>
-            {this.state.characters.map(characters => (
-                <CharacterCards
-                    id={characters.id}
-                    key={characters.id}
-                    name={characters.name}
-                    image={characters.image}
+            {this.state.sneakers.map(sneakers => (
+                <SneakerCard
+                    id={sneakers.id}
+                    key={sneakers.id}
+                    name={sneakers.name}
+                    image={sneakers.image}
                     shuffle={this.shuffle}
                 />
             ))}
