@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
-import CharacterCard from "./components/CharacterCard";
+import CharacterCards from "./components/CharacterCard";
 import characters from "./characters.json";
 import Score from "./components/Score";
 
@@ -22,7 +22,7 @@ shuffle = id => {
     //Shuffle card functionality 
     this.setState({
         characters: this.state.characters.sort(function (a,b){
-            return 0.5 - Math.Random();
+            return 0.5 - Math.random();
         }),
         clickedCharacters: this.state.clickedCharacters.concat(id),
         //Increase score 
@@ -58,8 +58,8 @@ render () {
     this.Win();
     return (
         <Wrapper>
-            {this.state.characters.map(character => (
-                <CharacterCard
+            {this.state.characters.map(characters => (
+                <CharacterCards
                     id={characters.id}
                     key={characters.id}
                     name={characters.name}
