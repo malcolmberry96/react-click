@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-//import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import CharacterCards from "./components/CharacterCard";
 import characters from "./characters.json";
 import Score from "./components/Score";
+import Title from "./components/Title";
 
 
 
@@ -57,7 +58,10 @@ render () {
     //Check win first 
     this.Win();
     return (
+        <div>
         <Wrapper>
+            <Title>HYPE Memory</Title>
+            <Score>{this.state.score}</Score>
             {this.state.characters.map(characters => (
                 <CharacterCards
                     id={characters.id}
@@ -67,8 +71,8 @@ render () {
                     shuffle={this.shuffle}
                 />
             ))}
-            <Score>{this.state.score}</Score>
         </Wrapper>
+        </div>
     );
   };
 };
