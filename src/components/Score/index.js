@@ -3,8 +3,9 @@ import "./style.css";
 
 function Score(props) {
     return <p className="score">
-    Classic Memory Game: Click the same sneaker twice you loose. Try to remember all twelve sneakers
-    Score: {props.children}</p>;
+    Try to remember all twelve sneakers! Click the same sneaker twice and you lose. Try to remember all twelve!
+   <br> Score: {props.children} </br>
+   </p>;
     
 }
 
