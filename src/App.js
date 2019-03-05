@@ -5,6 +5,7 @@ import SneakerCard from "./components/SneakerCard";
 import sneakers from "./sneakers.json";
 import Score from "./components/Score";
 import Title from "./components/Title";
+import Instructions from "./components/Instructions";
 
 
 
@@ -61,6 +62,7 @@ render () {
         <div>
         <Wrapper>
             <Title>HYPE Memory</Title>
+            <Instructions>Try to remember all twelve sneakers! Click the same sneaker twice and you lose.</Instructions>
             <Score>{this.state.score}</Score>
             {this.state.sneakers.map(sneakers => (
                 <SneakerCard
